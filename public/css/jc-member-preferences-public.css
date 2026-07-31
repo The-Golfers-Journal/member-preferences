@@ -23,3 +23,30 @@ form.putter-type-preference input[type=radio], form.headcover-preference input[t
 form.putter-type-preference input[type=submit], form.headcover-preference input[type=submit] {
   margin-top: 40px;
 }
+
+/* Replaces Foundation's foundation-callout component (blocks/putter-type.php,
+   includes/class-jc-member-preferences-query.php) -- the tgj-theme is
+   removing Foundation Sites entirely (FOUNDATION-REMOVAL-SPEC.md §12).
+   Written directly against the existing .message class rather than a
+   separate callout-style class. */
+.message {
+  position: relative;
+  margin: 0 0 1rem 0;
+  padding: 1rem;
+  border: 1px solid rgba(10, 10, 10, 0.25);
+  background-color: #fefefe;
+  color: #0a0a0a;
+}
+
+.message > :first-child {
+  margin-top: 0;
+}
+
+.message > :last-child {
+  margin-bottom: 0;
+}
+
+.message.alert {
+  background-color: #f7e4e1;
+  color: #0a0a0a;
+}

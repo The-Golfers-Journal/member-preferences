@@ -132,7 +132,7 @@ class JC_Member_Preferences_Putter_Type {
 		<div class="putter-type-block">
 			<div class="inner-wrapper">
 
-				<div class="message callout alert" style="display: none;">&nbsp;</div>
+				<div class="message alert" style="display: none;">&nbsp;</div>
 				<h4>Your selection:</h4>
                 <form class="putter-type-preference" name="putter_type_preference">
 
