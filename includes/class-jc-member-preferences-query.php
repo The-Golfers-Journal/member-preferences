@@ -143,7 +143,7 @@ class JC_Member_Preferences_Query extends WC_Query {
 
 				<?php
 				if ( $message ) {
-					echo '<div class="message callout">' . $message . '</div>';
+					echo '<div class="message">' . $message . '</div>';
 				}
 				?>
                 <form class="member-preference-form" method="post" action="#">
