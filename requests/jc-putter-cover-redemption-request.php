@@ -266,7 +266,7 @@ class JC_Putter_Cover_Redemption_Request extends JC_Async_Report_Request {
 				$entitlement->get_redemption_order_id()
 			];
 
-			fputcsv( $fp, $row );
+			fputcsv( $fp, $row, escape: '\\' );
 
 		}
 

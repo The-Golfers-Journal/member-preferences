@@ -82,7 +82,7 @@ class JC_Headcover_Controller_Renewals extends JC_AR_Report_Controller {
 				'Subscription #', 'Customer #', 'Billing Email', 'Gift', 'Recipient #', 'Recipient Email', 'Shipping First', 'Shipping Last', 'Preference', 'Redeemed', 'Redemption Order #'
 			);
 
-			fputcsv( $fp, $header_row );
+			fputcsv( $fp, $header_row, escape: '\\' );
 
 		}
 
