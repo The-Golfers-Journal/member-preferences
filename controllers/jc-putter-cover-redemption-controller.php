@@ -90,7 +90,7 @@ class JC_Putter_Cover_Redemption_Controller extends JC_AR_Report_Controller {
 				'Subscription #', 'Customer #', 'Billing Email', 'Gift', 'Recipient #', 'Recipient Email', 'Shipping First', 'Shipping Last', 'Preference', 'Redemption Gift', 'Redemption Order #'
 			);
 
-			fputcsv( $fp, $header_row );
+			fputcsv( $fp, $header_row, escape: '\\' );
 
 		}
 
