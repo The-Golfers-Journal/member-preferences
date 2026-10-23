@@ -124,11 +124,9 @@ class JC_Member_Preferences {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-jc-member-preferences-public.php';
 
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'blocks/putter-type.php';
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'blocks/putter-vc.php';
 
 
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'blocks/headcover.php';
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'blocks/headcover-vc.php';
 
 		add_action( 'plugins_loaded', [ $this, 'load_dependant_classes' ], 999 );
 
@@ -147,25 +145,6 @@ class JC_Member_Preferences {
 			require_once plugin_dir_path( dirname( __FILE__ ) ) . '/includes/class-jc-member-preferences-query.php';
 			new JC_Member_Preferences_Query();
 		}
-
-			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'requests/jc-putter-cover-report-request.php';
-			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'controllers/jc-putter-cover-report-controller.php';
-
-			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'requests/jc-putter-cover-report-request-six.php';
-			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'controllers/jc-putter-cover-report-controller-six.php';
-	
-			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'requests/jc-putter-cover-redemption-request.php';
-			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'controllers/jc-putter-cover-redemption-controller.php';
-
-			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'requests/jc-headcover-report-request.php';
-			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'controllers/jc-headcover-report-controller.php';
-
-
-			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'requests/jc-headcover-report-request-renewals.php';
-			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'controllers/jc-headcover-report-controller-renewals.php';
-	
-			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'requests/jc-headcover-redemption-request.php';
-			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'controllers/jc-headcover-redemption-controller.php';
 
 	}
 
@@ -230,24 +209,12 @@ class JC_Member_Preferences {
 		$this->loader->add_action( 'wp_ajax_nopriv_jc_set_putter_type', $block, 'handle_submission' );
 		$this->loader->add_action( 'wp_ajax_jc_set_putter_type', $block, 'handle_submission' );
 
-		$vc = new JC_Member_Preferences_Putter_VC( $this->get_version() );
-
-		$this->loader->add_action( 'init', $vc, 'enqueue_styles' );
-		$this->loader->add_action( 'init', $vc, 'enqueue_scripts' );
-		$this->loader->add_action( 'init', $vc, 'register' );
-
 		$block = new JC_Member_Preferences_Headcover( $this->get_version() );
 
 		$this->loader->add_action( 'init', $block, 'enqueue_styles' );
 		$this->loader->add_action( 'init', $block, 'enqueue_scripts' );
 		$this->loader->add_action( 'init', $block, 'register' );
 		$this->loader->add_action( 'init', $block, 'handle_submission' );
-
-		$vc = new JC_Member_Preferences_Headcover_VC( $this->get_version() );
-
-		$this->loader->add_action( 'init', $vc, 'enqueue_styles' );
-		$this->loader->add_action( 'init', $vc, 'enqueue_scripts' );
-		$this->loader->add_action( 'init', $vc, 'register' );
 	}
 
 	/**
